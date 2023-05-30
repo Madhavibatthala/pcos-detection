@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PCOS DISEASE PREDICTION</title>
+    <style>
+        input[type=text] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+             box-sizing: border-box;
+             background-color: #dfeee9;
+             color: rgb(79, 69, 69);
+            }
+            input[type=number] {
+            width: 50%;
+            padding: 12px 20px;
+            margin: 8px 0;
+             box-sizing: border-box;
+             background-color: #dfeee9;
+             color: rgb(79, 69, 69);
+            }
+            input[type=submit] {
+            width: 20%;
+            padding: 12px 20px;
+            margin: 8px 0;
+             box-sizing: border-box;
+             background-color: #147792;
+             color: rgb(255, 255, 255);
+             margin-left: 130px;
+             border-radius: 10%;
+             font-size: 30px;
+            }
+            label {
+        display: inline-block;
+        /* text-align: right; */
+        display:justify-content
+        
+      }
+       body {
+        /* background:"https://t3.ftcdn.net/jpg/04/87/48/66/360_F_487486623_CatNgUbulZ6rOpENckeTzRfY7IzrqOKd.jpg";
+  background-repeat: no-repeat; */
+  background-size:100% 100%;
+  background-attachment: fixed;
+  margin-left:400px;
+}
+    </style>
+</head>
+<body background="https://cdn.wallpapersafari.com/26/22/HIpEaJ.jpg">
+	<h1 style="color:rgb(18, 19, 19)">PCOS  DISEASE  PREDICTION</h1>
+	<form action="{{ url_for('predict') }}" method="POST">
+		<label for="age">Enter your Age:</label><br>
+		<input type="number" id="age" name="age" required><br>
+		<label for="weight">Enter your Weight:</label><br>
+        <input type="text" id="weight" name="weight" required><br>
+        <label for="height">Enter your Height:</label><br>
+        <input type="text" id="height" name="height" required><br>
+        <label for="bmi">Enter your BMI:</label><br>
+        <input type="text" id="bmi" name="bmi" required><br>
+        <label for="bg">Enter Blood Group:</label><br>
+        <input type="number" id="bg" name="bg" required><br>
+        <label for="pr">Enter your Pulse Rate:</label><br>
+        <input type="number" id="pr" name="pr" required><br>
+        <label for="rr">Enter your RR:</label><br>
+        <input type="number" id="rr" name="rr" required><br>
+        <label for="hb">Enter hb:</label><br>
+        <input type="text" id="hb" name="hb" required><br>
+        <label for="cycle">Enter your menstrural cycle:</label><br>
+        <input type="number" id="cycle" name="cycle" required><br>
+        <label for="length">Enter cycle length:</label><br>
+        <input type="text" id="length" name="length" required><br>
+        <label for="ms">Marraige Status:</label><br>
+        <input type="text" id="ms" name="ms" required><br>
+        <label for="pregnant">No of pregnancies:</label><br>
+        <input type="text" id="Pregnant" name="Pregnant" required><br>
+        <label for="oborptions">Enter no of oborptions:</label><br>
+        <input type="text" id="oborptions" name="oborptions" required><br>
+        <label for="Ihcg">Enter I-betahcg:</label><br>
+        <input type="text" id="Ihcg" name="Ihcg" required><br>
+        <label for="IIhcg">Enter II-betahcg:</label><br>
+        <input type="text" id="IIhcg" name="IIhcg" required><br>
+        <label for="fsh">Eter your FSH:</label><br>
+        <input type="text" id="fsh" name="fsh" required><br>
+        <label for="lh">Enter your LH:</label><br>
+        <input type="text" id="lh" name="lh" required><br>
+        <label for="fsh-lh">Enter your FSH/LH:</label><br>
+        <input type="text" id="fsh-lh" name="fsh-lh" required><br>
+        <label for="hip">Enter your hip size:</label><br>
+        <input type="text" id="hip" name="hip" required><br>
+        <label for="weist">Enter waist size:</label><br>
+        <input type="text" id="weist" name="weist" required><br>
+        <label for="hip-weist">Enter hip-waist ratio:</label><br>
+        <input type="text" id="hip-weist" name="hip-weist" required><br>
+        <label for="tsh">Enter your TSH:</label><br>
+        <input type="text" id="tsh" name="tsh" required><br>
+		<label for="amh">Enter your AMH:</label><br>
+		<input type="text" id="amh" name="amh" required><br>
+        <label for="prl">Enter your PRL:</label><br>
+		<input type="text" id="prl" name="prl" required><br>
+        <label for="d3">Enter your vit D3:</label><br>
+		<input type="text" id="d3" name="d3" required><br>
+        <label for="prg">Enter PRG:</label><br>
+		<input type="text" id="prg" name="prg" required><br>
+        <label for="rbs">Enter your RBS:</label><br>
+		<input type="text" id="rbs" name="rbs" required><br>
+        <label for="wg">Weight gain:</label><br>
+		<input type="text" id="wg" name="wg" required><br>
+        <label for="hg">Hair growth:</label><br>
+		<input type="text" id="hg" name="hg" required><br>
+        <label for="sk">Facing any skin darkening issues</label><br>
+		<input type="text" id="sk" name="sk" required><br>
+        <label for="hl">Facing any hair loss issues</label><br>
+		<input type="text" id="hl" name="hl" required><br>
+        <label for="pimples">Facing any pimples issues</label><br>
+		<input type="text" id="pimples" name="pimples" required><br>
+        <label for="fastfood">Do you eat fast food</label><br>
+		<input type="text" id="fastfood" name="fastfood" required><br>
+        <label for="re">Regular exercise</label><br>
+		<input type="text" id="re" name="re" required><br>
+        <label for="bps">BP_Systolic Pressure</label><br>
+		<input type="text" id="bps" name="bps" required><br>
+        <label for="bpd">BP_Diastolic Pressure</label><br>
+		<input type="text" id="bpd" name="bpd" required><br>
+        <label for="fnl">Enter follicle number L</label><br>
+		<input type="text" id="fnl" name="fnl" required><br>
+        <label for="fnr">Enter follicle number R</label><br>
+		<input type="text" id="fnr" name="fnr" required><br>
+        <label for="fsizel">Enter AVG F size L</label><br>
+		<input type="text" id="fsizel" name="fsizel" required><br>
+        <label for="fsizer">Enter AVG F SIZE R</label><br>
+		<input type="text" id="fsizer" name="fsizer" required><br>
+        <label for="en">Enter Endometrium level</label><br>
+		<input type="text" id="en" name="en" required><br>
+
+
+		<input type="submit" value="PREDICT">
+	</form>
+</body>
+</html>
